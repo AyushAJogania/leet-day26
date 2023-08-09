@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        int n = digits.size();
+        
+        // Iterate from the least significant digit to the most significant digit
+        for (int i = n - 1; i >= 0; i--) {
+            if (digits[i] < 9) {
+                // If the current digit is less than 9, simply increment it and return
+                digits[i]++;
+                return digits;
+            } else {
+                // If the current digit is 9, set it to 0 and carry over to the next digit
+                digits[i] = 0;
+            }
+        }
+        
+        // If all digits were 9, add an extra digit at the beginning with a value of 1
+        digits.insert(digits.begin(), 1);
+        return digits;
+    }
+};
